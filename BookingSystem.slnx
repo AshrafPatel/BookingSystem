@@ -1,8 +1,8 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="BookingApplication.Application/BookingSystem.Application.csproj" />
-    <Project Path="BookingApplication.Domain/BookingSystem.Domain.csproj" />
     <Project Path="BookingSystem.Api/BookingSystem.Api.csproj" />
+    <Project Path="BookingSystem.Application/BookingSystem.Application.csproj" />
+    <Project Path="BookingSystem.Domain/BookingSystem.Domain.csproj" />
     <Project Path="BookingSystem.Infrastracture/BookingSystem.Infrastracture.csproj" />
   </Folder>
   <Folder Name="/tests/">
