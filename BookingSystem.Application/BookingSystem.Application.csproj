@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
-    <Folder Include="Security\" />
+    <Folder Include="Features\Bookings\" />
+    <Folder Include="Features\Agent\" />
+    <Folder Include="Features\Staff\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Mappings\" />
   </ItemGroup>
 
 </Project>
