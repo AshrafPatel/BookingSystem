@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BookingSystem.Infrastracture\BookingSystem.Infrastracture.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookingSystem.Domain.Enums
 {
-    public enum Status
+    public enum BookingStatus
     {
         PENDING = 0,
         CONFIRMED = 1,

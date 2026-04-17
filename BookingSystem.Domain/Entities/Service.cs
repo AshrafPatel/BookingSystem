@@ -12,7 +12,7 @@ namespace BookingSystem.Domain.Entities
         public Guid Id { get; set; }
         public ServiceType ServiceType { get; set; }
         public string Description { get; set; } = string.Empty;
-        public int DurationMinutes { get; set; }
+        public required int DurationMinutes { get; set; }
         public decimal Price { get; set; }
     }
 }

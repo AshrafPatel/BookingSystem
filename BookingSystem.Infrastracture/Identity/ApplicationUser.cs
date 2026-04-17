@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookingSystem.Infrastracture.Identity
 {
-    internal class ApplicationUser : IdentityUser<Guid>
+    public class ApplicationUser : IdentityUser<Guid>
     {
     }
 }
