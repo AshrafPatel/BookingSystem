@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BookingSystem.Application.Features.Auth.Logout
 {
-    internal class LogoutHandler
+    public class LogoutHandler
     {
+        public async Task Handle(string refreshToken)
+        {
+            // Find token in DB
+            // Remove token from DB
+        }
     }
 }

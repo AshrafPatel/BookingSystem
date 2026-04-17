@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BookingSystem.Application.Features.Auth.Login
 {
-    internal class LoginRequestDto
+    public class LoginRequestDto
     {
+        public required string Email { get; set; }
+        public required string Password { get; set; }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace BookingSystem.Application.Features.Auth.RefreshToken
 {
-    internal class RefreshTokenResponseDto
+    public class RefreshTokenResponseDto
     {
+        public required string AccessToken { get; set; } 
+        public required string RefreshToken { get; set; }
+        public DateTime ExpiresAt { get; set; }
     }
 }
