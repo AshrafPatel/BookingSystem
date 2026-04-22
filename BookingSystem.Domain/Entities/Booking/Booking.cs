@@ -1,6 +1,6 @@
-﻿using BookingSystem.Domain.Enums;
+﻿
 
-namespace BookingSystem.Domain.Entities
+namespace BookingSystem.Domain.Entities.Booking
 {
     public class Booking
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookingSystem.Domain.Enums
+namespace BookingSystem.Domain.Entities.Service
 {
     public enum ServiceType
     {
