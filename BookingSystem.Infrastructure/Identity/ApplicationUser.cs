@@ -9,5 +9,7 @@ namespace BookingSystem.Infrastracture.Identity
 {
     public class ApplicationUser : IdentityUser<Guid>
     {
+        //Optional properties for user profile name, Address, PhoneNumber are already included in
+        //IdentityUser, so we can use them directly without adding them here
     }
 }
