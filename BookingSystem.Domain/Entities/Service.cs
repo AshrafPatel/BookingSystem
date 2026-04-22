@@ -14,5 +14,8 @@ namespace BookingSystem.Domain.Entities
         public string Description { get; set; } = string.Empty;
         public required int DurationMinutes { get; set; }
         public decimal Price { get; set; }
+        //Qualifications required for the service, this will help us find staff with the required qualifications
+        //for a service and book them without worrying about staff qualifications
+        public ICollection<Qualification> RequiredQualifications { get; set; } = [];
     }
 }
