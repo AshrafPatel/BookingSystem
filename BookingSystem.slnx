@@ -1,4 +1,6 @@
 <Solution>
+  <Folder Name="/poc/" />
+  <Folder Name="/poc/SemanticSearchDemo/" />
   <Folder Name="/src/">
     <Project Path="BookingSystem.Api/BookingSystem.Api.csproj" />
     <Project Path="BookingSystem.Application/BookingSystem.Application.csproj" />

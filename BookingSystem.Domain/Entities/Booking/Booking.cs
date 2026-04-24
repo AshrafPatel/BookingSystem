@@ -1,5 +1,8 @@
 ﻿
 
+using BookingSystem.Domain.Entities.Customer;
+using BookingSystem.Domain.Entities.Staff;
+
 namespace BookingSystem.Domain.Entities.Booking
 {
     public class Booking
@@ -13,7 +16,7 @@ namespace BookingSystem.Domain.Entities.Booking
         public required StaffProfile StaffProfile { get; set; }
         //Service
         public Guid ServiceId { get; set; }
-        public required Service Service { get; set; }
+        public required Service.Service Service { get; set; }
         //Timeslots
         public Guid TimeSlotId { get; set; }
         public required TimeSlot TimeSlot { get; set; }
