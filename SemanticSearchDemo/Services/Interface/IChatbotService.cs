@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SemanticSearchDemo.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace SemanticSearchDemo.Services.Interface
 {
     public interface IChatbotService
     {
-        Task<string> CreateCustomerFromUserInput(string userInput);
+        Task<string> CreateCustomerFromUserInput(CustomerProfile customerFromJson);
     }
 }
