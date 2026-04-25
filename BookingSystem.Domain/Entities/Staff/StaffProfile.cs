@@ -1,5 +1,4 @@
 ﻿using BookingSystem.Domain.Entities.Booking;
-using BookingSystem.Infrastracture.Identity;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -10,7 +9,6 @@ namespace BookingSystem.Domain.Entities.Staff
         [Key]
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
-        public required ApplicationUser User { get; set; }
         public ICollection<Booking.Booking> Bookings { get; set; } = [];
         //Timeslots belong to staff so we can easily find available timeslots for a service and book them without worrying about staff availability
         public ICollection<TimeSlot> TimeSlots { get; set; } = [];

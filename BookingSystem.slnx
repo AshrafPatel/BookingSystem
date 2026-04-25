@@ -1,6 +1,7 @@
 <Solution>
-  <Folder Name="/poc/" />
-  <Folder Name="/poc/SemanticSearchDemo/" />
+  <Folder Name="/poc/">
+    <Project Path="SemanticSearchDemo/SemanticSearchDemo.csproj" Id="d8a6df6d-a923-42bd-9dc1-5164cce5a7a5" />
+  </Folder>
   <Folder Name="/src/">
     <Project Path="BookingSystem.Api/BookingSystem.Api.csproj" />
     <Project Path="BookingSystem.Application/BookingSystem.Application.csproj" />

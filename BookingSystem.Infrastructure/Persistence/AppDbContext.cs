@@ -1,5 +1,6 @@
 ﻿using BookingSystem.Domain.Entities;
 using BookingSystem.Infrastracture.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
