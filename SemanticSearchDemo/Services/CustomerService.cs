@@ -11,15 +11,13 @@ using System.Threading.Tasks;
 
 namespace SemanticSearchDemo.Services
 {
-    public class ChatbotService : IChatbotService
+    public class CustomerService : ICustomerService
     {
-        private readonly Kernel _kernel;
-        public ChatbotService(Kernel kernel)
+        public CustomerService()
         {
-            _kernel = kernel;
         }
 
-        public Task<string> CreateCustomerFromUserInput(CustomerProfile customerFromJson)
+        public async Task<Customer> CreateCustomerFromUserInput(CustomerProfile customerFromJson)
         {
             var service = customerFromJson.RecommendedService;
 
@@ -28,23 +26,34 @@ namespace SemanticSearchDemo.Services
                 if (customerFromJson.Condition.Contains(Symptoms.COMA, StringComparison.OrdinalIgnoreCase) ||
                     customerFromJson.Condition.Contains(Symptoms.UNCONSCIOUSNESS, StringComparison.OrdinalIgnoreCase))
                 {
-                    service = Services.EMERGENCY;
+                    service = Specialist.EMERGENCY;
                 }
                 else if (customerFromJson.Condition.Contains(Symptoms.CHEST_PAIN, StringComparison.OrdinalIgnoreCase) ||
                          customerFromJson.Condition.Contains(Symptoms.HEART_ATTACK, StringComparison.OrdinalIgnoreCase))
                 {
-                    service = Services.CARDIOLOGY;
+                    service = Specialist.CARDIOLOGY;
                 }
                 else if (customerFromJson.Condition.Contains(Symptoms.FEVER, StringComparison.OrdinalIgnoreCase) ||
                          customerFromJson.Condition.Contains(Symptoms.INFECTION, StringComparison.OrdinalIgnoreCase))
                 {
-                    service = Services.INFECTIOUS_DISEASE;
+                    service = Specialist.INFECTIOUS_DISEASE;
                 }
                 else
                 {
-                    service = Services.GENERAL_PRACTITIONER;
+                    service = Specialist.GENERAL_PRACTITIONER;
                 }
             }
+
+            var customer = new Customer
+            {
+                Id = Guid.NewGuid(),
+                Name = customerFromJson.Name,
+                Condition = customerFromJson.Condition,
+                RecommendedService = service,
+                PreferredTime = customerFromJson.PreferredTime
+            };
+
+            return customer;
         }
     }
 }

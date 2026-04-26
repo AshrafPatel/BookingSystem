@@ -8,13 +8,10 @@ namespace SemanticSearchDemo.Constants
 {
     public static class Specialist
     {
-        public const string DERMATOLOGIST = "Dermatologist";
-        public const string CARDIOLOGIST = "Cardiologist";
-        public const string NEUROLOGIST = "Neurologist";
-        public const string PEDIATRICIAN = "Pediatrician";
-        public const string ORTHOPEDIC_SURGEON = "Orthopedic Surgeon";
-        public const string PSYCHIATRIST = "Psychiatrist";
-        public const string OPTOMETRIST = "Optometrist";
+        public const string CARDIOLOGY = "Cardiology";
+        public const string EMERGENCY = "Emergency";
+        public const string INFECTIOUS_DISEASE = "Infectious Disease";
+        public const string GENERAL_PRACTITIONER = "General Practitioner";
 
 
     }

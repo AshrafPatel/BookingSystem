@@ -13,11 +13,11 @@ namespace SemanticSearchDemo.Plugins
 {
     public class CustomerPlugin
     {
-        private readonly IChatbotService _chatbotService;
+        private readonly ICustomerService _customerService;
 
-        public CustomerPlugin(IChatbotService chatbotService)
+        public CustomerPlugin(ICustomerService customerService)
         {
-            _chatbotService = chatbotService;
+            _customerService = customerService;
         }
 
         [KernelFunction("create_customer_from_user_input")]
@@ -27,13 +27,21 @@ namespace SemanticSearchDemo.Plugins
             Kernel kernel)
         {
             var prompt = $@"
-               Create a customer profile from the following user input: {userInput}
+                You are a medical booking assistant.
+                Available Services:
+                    -Cardiology
+                    -Emergency
+                    -Infectious Disease
+                    -General Practitioner
+                Create a customer profile from the following user input: {userInput}
                 The profile should include the:
                     -Customer's condition, 
                     -Recommended service
                     -Preferred time.
 
                 Format the output as JSON.
+                Select the MOST appropriate service.
+                Return ONLY one value from the list.
                 
                 return JSON only like:
                 {{
@@ -46,7 +54,7 @@ namespace SemanticSearchDemo.Plugins
 
             var result = await kernel.InvokePromptAsync(prompt).ConfigureAwait(false);
             var customerFromJson = JsonSerializer.Deserialize<CustomerProfile>(result.ToString());
-            var customer = _chatbotService.CreateCustomerFromUserInput(customerFromJson);
+            var customer = _customerService.CreateCustomerFromUserInput(customerFromJson);
             return $"Customer created with ID {customer.Id}";
 
         }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace SemanticSearchDemo.Services.Interface
 {
-    public interface IChatbotService
+    public interface ICustomerService
     {
-        Task<string> CreateCustomerFromUserInput(CustomerProfile customerFromJson);
+        Task<Customer> CreateCustomerFromUserInput(CustomerProfile customerFromJson);
     }
 }

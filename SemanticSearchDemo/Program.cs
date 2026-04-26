@@ -1,12 +1,15 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.SemanticKernel;
+using SemanticSearchDemo.Plugins;
 using SemanticSearchDemo.Services;
+using SemanticSearchDemo.Services.Interface;
 
 namespace SemanticSearchDemo
 {
     public class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var config = new ConfigurationBuilder()
                 .AddUserSecrets<Program>()
@@ -23,18 +26,47 @@ namespace SemanticSearchDemo
                 {
                     throw new Exception("API key or model is not configured. Please check your user secrets.");
                 }
+                //SETUP
+                builder.Services.AddSingleton<ICustomerService, CustomerService>();
+                builder.Services.AddSingleton<CustomerPlugin>();
                 builder.AddOpenAIChatCompletion(model, apiKey);
                 var kernel = builder.Build();
-                var chatbot = new ChatbotService(kernel);
+
+                //START SERVICE
+                Console.WriteLine("AI Booking Assistant (type 'exit' to quit)\n");
+                string input = string.Empty;
+                input = Console.ReadLine();
+                while (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.Write("> ");
+
+                    if (string.IsNullOrWhiteSpace(input))
+                        continue;
+
+                    if (input?.ToLower() == "exit")
+                        break;
+                }
+
+                //INVOKE PROMPT
+                var prompt = $@"
+                    You are an AI assistant for a booking system.
+
+                    If the user is trying to create a customer profile,
+                    call the function 'create_customer_from_user_input'.
+
+                    User input:
+                    {input}
+                ";
+
+                var result = await kernel.InvokePromptAsync(prompt).ConfigureAwait(false);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
 
-           
+            // Initialize file service and set file path
             var fileService = new FileService();
-
             string filePath = "output.txt";
         }
     }
